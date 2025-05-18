@@ -21,7 +21,7 @@ CREATE TABLE genre(
 );
 
 CREATE TABLE format(
-    format_id INT AUTO_INCREMENT NOT NULL,
+    format_id INT UNSIGNED AUTO_INCREMENT NOT NULL,
     format VARCHAR(40),
     CONSTRAINT format_pk PRIMARY KEY (format_id)
 );
@@ -49,6 +49,13 @@ CREATE TABLE book_to_genre (
     genre_id INT UNSIGNED NOT NULL,
     CONSTRAINT fk_book FOREIGN KEY (book_id) REFERENCES book(book_id),
     CONSTRAINT fk_genre FOREIGN KEY (genre_id) REFERENCES genre(genre_id)
+);
+
+CREATE TABLE book_to_format (
+    book_id INT UNSIGNED NOT NULL,
+    format_id INT UNSIGNED NOT NULL,
+    CONSTRAINT fk_book_format FOREIGN KEY (book_id) REFERENCES book(book_id),
+    CONSTRAINT fk_format FOREIGN KEY (format_id) REFERENCES format(format_id)
 );
 
 
