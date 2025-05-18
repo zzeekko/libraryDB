@@ -102,3 +102,24 @@ ALTER TABLE book
 
 ALTER TABLE book
     MODIFY qty INT UNSIGNED;
+
+ALTER TABLE publisher
+    RENAME COLUMN pub_id TO publisher_id;
+
+ALTER TABLE book
+    RENAME COLUMN pub_id TO publisher_id;
+
+ALTER TABLE book
+    DROP FOREIGN KEY fk_pub;
+
+DROP TABLE publisher;
+
+CREATE TABLE publisher(
+    publisher_id INT UNSIGNED AUTO_INCREMENT NOT NULL,
+    publisher VARCHAR(40),
+    CONSTRAINT pub_pk PRIMARY KEY (publisher_id)
+);
+
+
+ALTER TABLE book
+    ADD CONSTRAINT fk_pub FOREIGN KEY (pub_id) REFERENCES publisher(pub_id);
