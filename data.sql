@@ -267,6 +267,22 @@ VALUES
     (12, 12),
     (13, 10);
 
+INSERT INTO book_to_format (book_id, format_id)
+VALUES
+    (1, 1),
+    (2, 1),
+    (3, 1),
+    (4, 1),
+    (5, 1),
+    (6, 1),
+    (7, 1),
+    (8, 1),
+    (9, 1),
+    (10, 1),
+    (11, 2),
+    (12, 3),
+    (13, 3);
+
     -- tests
 
     SELECT b.book_id, b.title, g.genre_id, g.genre
